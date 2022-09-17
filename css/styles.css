@@ -4,4 +4,10 @@ h1 {
 
 #container {
     border: solid black 5px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    height: 528px;
+    width: 528px;
 }
