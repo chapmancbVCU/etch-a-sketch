@@ -11,3 +11,9 @@ h1 {
     height: 528px;
     width: 528px;
 }
+
+#set-grid-button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
