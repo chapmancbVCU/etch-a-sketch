@@ -8,20 +8,53 @@
 /******************************************************************************
  * GLOBAL VARIABLES
  *****************************************************************************/
-const collumn = 16;
+// Set number of columns and rows.
+const column = 16;
 const row = 16
 
 
-// Create grid
-const container = document.querySelector('#container');
+/******************************************************************************
+ *        Name: updateColor
+ * Description: Updates a block when the mouse hovers over it.
+ *   Arguments: e - event captured by event listener.
+ *     Returns: NONE
+ *****************************************************************************/
+function updateColor(e) {
+    console.log(this.getAttribute('id'));
+    this.style.backgroundColor = "grey";
+    e.stopPropagation();
+}
 
-for(let i = 0; i < collumn; i++) {
-    for(j = 0; j < row; j++) {
-        const block = document.createElement('div');
-        block.classList.add('block');
-        block.style.height = container.clientHeight / 16 + 'px';
-        block.style.width = container.clientWidth / 16 + 'px';
-        block.style.backgroundColor = 'lightgrey';
-        container.append(block);
+
+/******************************************************************************
+ *        Name: createGrid
+ * Description: Creates the grid for Etch-a-Sketch
+ *   Arguments: column - number of columns
+ *              rows - number of rows
+ *     Returns: NONE
+ *****************************************************************************/
+function createGrid(column, row) {
+    for(let i = 0; i < column; i++) {
+        for(j = 0; j < row; j++) {
+            const block = document.createElement('div');
+            block.classList.add('block');
+            block.style.height = container.clientHeight / column + 'px';
+            block.style.width = container.clientWidth / row + 'px';
+            block.style.backgroundColor = 'lightgrey';
+            block.setAttribute("id", `${i},${j}`)
+            container.append(block);
+        }
     }
 }
+
+// Create grid
+const container = document.querySelector('#container');
+createGrid(column, row);
+
+// Setup event listening capability for mouse hover.
+const blockDiv = document.querySelectorAll('.block');
+
+blockDiv.forEach(block => block.addEventListener('mouseover', updateColor, {
+    
+}));
+
