@@ -22,12 +22,17 @@ let row = 16
  *     Returns: NONE
  *****************************************************************************/
 function checkSize(size) {
-    if(size <= 100) {
-        column = size - 1;
-        row = size - 1;
-        createGrid(column, row);
+    if(Number.isInteger(size)) {
+        if(size >= 16 && size <= 100) {
+            column = size - 1;
+            row = size - 1;
+            createGrid(column, row);
+        } else {
+            alert("Size must be an integer more than 16 and less than 100.");
+            createGrid(16, 16);
+        }
     } else {
-        alert("Size can't be greater than 100");
+        alert("Not an integer.");
         createGrid(16, 16);
     }
 }
@@ -84,6 +89,6 @@ createGrid(column, row);
 const button = document.querySelector('button');
 button.addEventListener('click', function() {
     container.innerHTML = '';
-    let size = prompt("Set new size less than or equal to 100: ");
+    let size = prompt("Set new size from 16 to 100: ");
     checkSize(size);
 });
