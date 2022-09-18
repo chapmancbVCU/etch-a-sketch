@@ -14,10 +14,11 @@ let row = 16
 
 
 /******************************************************************************
- *        Name: createGrid
- * Description: Creates the grid for Etch-a-Sketch
- *   Arguments: column - number of columns
- *              rows - number of rows
+ *        Name: checkSize
+ * Description: Checks size and alerts user if size is too large.  Then creates
+ *              new game.  If size is too large it is set to default 16x16
+ *              size.
+ *   Arguments: size - Integer value to set new size of grid.
  *     Returns: NONE
  *****************************************************************************/
 function checkSize(size) {
@@ -30,6 +31,8 @@ function checkSize(size) {
         createGrid(16, 16);
     }
 }
+
+
 /******************************************************************************
  *        Name: createGrid
  * Description: Creates the grid for Etch-a-Sketch
@@ -72,12 +75,9 @@ function updateColor(e) {
 }
 
 
-
-
 // Create grid
 const container = document.querySelector('#container');
 createGrid(column, row);
-
 
 
 // Setup event listener for creating new grid size
