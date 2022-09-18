@@ -22,17 +22,12 @@ let row = 16
  *     Returns: NONE
  *****************************************************************************/
 function checkSize(size) {
-    if(Number.isInteger(size)) {
-        if(size >= 16 && size <= 100) {
-            column = size - 1;
-            row = size - 1;
-            createGrid(column, row);
-        } else {
-            alert("Size must be an integer more than 16 and less than 100.");
-            createGrid(16, 16);
-        }
+    if(size >= 16 && size <= 100) {
+        column = size - 1;
+        row = size - 1;
+        createGrid(column, row);
     } else {
-        alert("Not an integer.");
+        alert("Size must be an integer more than 16 and less than 100");
         createGrid(16, 16);
     }
 }
